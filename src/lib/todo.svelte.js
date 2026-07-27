@@ -19,6 +19,7 @@ function saveToStorage(todos) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   } catch {
     // TODO: How should we handle this?
+    console.error('Failed to save todos to localStorage');
   }
 }
 
@@ -67,8 +68,15 @@ class TodoStore {
    * @param {string} text
    */
   addTodo(text) {
+    //{id: number, text: string, done: boolean}
     // TODO: create a new todo object and add it to this.todos.
     // Hint: use Date.now() for a simple unique id.
+    const id = Date.now();
+    const todo = {id: id, text: text, done: false};
+    this.todos.push (todo);
+      
+    const newTodo = createTodo(text);
+    this.todos = [...this.todos, newTodo];
   }
 
   /**
@@ -77,6 +85,8 @@ class TodoStore {
    */
   removeTodo(id) {
     // TODO: remove the todo with the matching id from this.todos.
+    this.todos = this.todos.filter(todo => todo.id !== id);
+
   }
 
   /**
