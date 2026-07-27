@@ -24,8 +24,8 @@ Christian's app: https://voluble-malabi-0c1582.netlify.app/
 
 Micah's app: https://sage-cannoli-da18fa.netlify.app
 
-### Week of July 27th
-
+### Week of July 27th - Adrianna [@adritreehome95](https://github.com/adritreehome95)
+Adrianna's app:
 ### Week of August 3rd
 
 ### Week of August 10th
