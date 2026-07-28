@@ -1,7 +1,8 @@
-<script>
-  import { store } from './lib/todo.svelte.js';
 
-  let newText = $state('');
+<script>
+import { store } from './lib/todo.svelte.js';
+
+let newText = $state('');
 
   function handleAdd() {
     const text = newText.trim();
@@ -16,7 +17,7 @@
 </script>
 
 <main>
-  <h1>Todo List</h1>
+  <h1> My Todo List</h1>
 
   <!-- Add new todo -->
   <div class="add-row">
@@ -44,7 +45,13 @@
             checked={todo.done}
             onchange={() => store.toggleTodo(todo.id)}
           />
-          <span class="text">{todo.text}</span>
+          <input
+            type="text"
+            class="text"
+            value={todo.text}
+            disabled={todo.done}
+            onchange={(evt) => store.updateTodo(todo.id, evt.target.value)}
+          />
           <button class="delete" onclick={() => store.removeTodo(todo.id)}>
             ✕
           </button>

@@ -73,10 +73,7 @@ class TodoStore {
     // Hint: use Date.now() for a simple unique id.
     const id = Date.now();
     const todo = {id: id, text: text, done: false};
-    this.todos.push (todo);
-      
-    const newTodo = createTodo(text);
-    this.todos = [...this.todos, newTodo];
+    this.todos.push(todo);
   }
 
   /**
@@ -86,7 +83,6 @@ class TodoStore {
   removeTodo(id) {
     // TODO: remove the todo with the matching id from this.todos.
     this.todos = this.todos.filter(todo => todo.id !== id);
-
   }
 
   /**
@@ -95,6 +91,10 @@ class TodoStore {
    */
   toggleTodo(id) {
     // TODO: flip the `done` property of the todo with the matching id.
+    const todo = this.todos.find(t => t.id === id);
+    if (todo) {
+      todo.done = !todo.done;
+    }
   }
 
   /**
@@ -104,6 +104,10 @@ class TodoStore {
    */
   updateTodo(id, text) {
     // TODO: change the `text` property of the todo with the matching id.
+    const todo = this.todos.find(t => t.id === id);
+    if (todo) {
+      todo.text = text;
+    }
   }
 }
 
